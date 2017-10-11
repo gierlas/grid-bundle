@@ -1,9 +1,9 @@
 <?php
 
-namespace Kora\Grid\Symfony\Tests\Twig;
+namespace Kora\GridBundle\Tests\Twig;
 
 use Kora\Grid\ResultDisplay\Column;
-use Kora\Grid\Symfony\Twig\ResultDisplayExtension;
+use Kora\GridBundle\Twig\ResultDisplayExtension;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Mockery as m;
@@ -17,7 +17,7 @@ class ResultDisplayExtensionTest extends TestCase
 	use MockeryPHPUnitIntegration;
 
 	/**
-	 * @expectedException \Kora\Grid\Symfony\Twig\Exception\RequireTemplateException
+	 * @expectedException \Kora\GridBundle\Twig\Exception\RequireTemplateException
 	 */
 	public function testFakeException()
 	{

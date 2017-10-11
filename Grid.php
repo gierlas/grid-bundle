@@ -1,9 +1,9 @@
 <?php
 
-namespace Kora\Grid\Symfony;
+namespace Kora\GridBundle;
 
 use Kora\Grid\Grid as GridBase;
-use Kora\Grid\Symfony\FormBuilder\FormBuilder;
+use Kora\GridBundle\FormBuilder\FormBuilder;
 use Symfony\Component\Form\FormInterface;
 
 /**

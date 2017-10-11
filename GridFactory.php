@@ -1,8 +1,8 @@
 <?php
 
-namespace Kora\Grid\Symfony;
+namespace Kora\GridBundle;
 
-use Kora\Grid\Symfony\FormBuilder\FormBuilder;
+use Kora\GridBundle\FormBuilder\FormBuilder;
 
 
 /**

@@ -1,10 +1,10 @@
 <?php
 
-namespace Kora\Grid\Symfony\FormBuilder;
+namespace Kora\GridBundle\FormBuilder;
 
 use Kora\DataProvider\DataProviderOperatorsSetup;
 use Kora\DataProvider\OperatorDefinition\FilterOperatorDefinitionInterface;
-use Kora\Grid\Symfony\FormBuilder\Exception\CannotGuessFormTypeException;
+use Kora\GridBundle\FormBuilder\Exception\CannotGuessFormTypeException;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\Form\FormInterface;
 

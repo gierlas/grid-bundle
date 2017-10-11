@@ -1,6 +1,6 @@
 <?php
 
-namespace Kora\Grid\Symfony\FormBuilder;
+namespace Kora\GridBundle\FormBuilder;
 
 use Symfony\Component\Form\FormBuilderInterface;
 

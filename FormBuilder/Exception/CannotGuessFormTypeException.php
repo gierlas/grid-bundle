@@ -1,6 +1,6 @@
 <?php
 
-namespace Kora\Grid\Symfony\FormBuilder\Exception;
+namespace Kora\GridBundle\FormBuilder\Exception;
 
 use Kora\DataProvider\OperatorDefinition\FilterOperatorDefinitionInterface;
 

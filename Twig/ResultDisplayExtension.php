@@ -1,9 +1,9 @@
 <?php
 
-namespace Kora\Grid\Symfony\Twig;
+namespace Kora\GridBundle\Twig;
 
 use Kora\Grid\ResultDisplay\Column;
-use Kora\Grid\Symfony\Twig\Exception\RequireTemplateException;
+use Kora\GridBundle\Twig\Exception\RequireTemplateException;
 
 
 /**

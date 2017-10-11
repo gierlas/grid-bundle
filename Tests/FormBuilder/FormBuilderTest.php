@@ -1,11 +1,11 @@
 <?php
 
-namespace Kora\Grid\Symfony\Tests\FormBuilder;
+namespace Kora\GridBundle\Tests\FormBuilder;
 
 use Kora\DataProvider\DataProviderOperatorsSetup;
 use Kora\DataProvider\OperatorDefinition\FilterOperatorDefinitionInterface;
-use Kora\Grid\Symfony\FormBuilder\FilterFormTypeInterface;
-use Kora\Grid\Symfony\FormBuilder\FormBuilder;
+use Kora\GridBundle\FormBuilder\FilterFormTypeInterface;
+use Kora\GridBundle\FormBuilder\FormBuilder;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\Form\FormBuilder as SymfonyFormBuilder;
@@ -18,7 +18,7 @@ use Symfony\Component\Form\FormInterface;
 class FormBuilderTest extends TestCase
 {
 	/**
-	 * @expectedException \Kora\Grid\Symfony\FormBuilder\Exception\CannotGuessFormTypeException
+	 * @expectedException \Kora\GridBundle\FormBuilder\Exception\CannotGuessFormTypeException
 	 */
 	public function testCannotGuessException()
 	{

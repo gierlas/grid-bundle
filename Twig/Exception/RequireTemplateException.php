@@ -1,6 +1,6 @@
 <?php
 
-namespace Kora\Grid\Symfony\Twig\Exception;
+namespace Kora\GridBundle\Twig\Exception;
 
 
 /**
