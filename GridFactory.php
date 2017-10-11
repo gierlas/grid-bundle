@@ -7,7 +7,7 @@ use Kora\GridBundle\FormBuilder\FormBuilder;
 
 /**
  * Class GridFactory
- * @author Paweł Gierlasiński <pawel@mediamonks.com>
+ * @author Paweł Gierlasiński <gierlasinski.pawel@gmail.com>
  */
 class GridFactory
 {

@@ -6,7 +6,7 @@
     "authors": [
         {
             "name": "Pawel Gierlasinski",
-            "email": "pawel@mediamonks.com"
+            "email": "gierlasinski.pawel@gmail.com"
         }
     ],
     "autoload": {
@@ -37,10 +37,10 @@
         "phpunit/phpunit": "^6.4",
         "mockery/mockery": "^1.0",
         "twig/twig": "^2.4",
-        "symfony/dependency-injection": "^3.3"
+        "symfony/dependency-injection": "^3.3",
+        "symfony/symfony": "^3.0"
     },
     "suggest": {
         "twig/twig": "If you'd like to use twig column renderer",
-        "symfony/dependency-injection": "If you want to use compiler passes"
     }
 }

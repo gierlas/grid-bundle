@@ -5,7 +5,7 @@ namespace Kora\GridBundle\Twig\Exception;
 
 /**
  * Class RequireTemplateException
- * @author Paweł Gierlasiński <pawel@mediamonks.com>
+ * @author Paweł Gierlasiński <gierlasinski.pawel@gmail.com>
  */
 class RequireTemplateException extends \Exception
 {

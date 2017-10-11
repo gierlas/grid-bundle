@@ -8,7 +8,7 @@ use Symfony\Component\Form\FormInterface;
 
 /**
  * Class Grid
- * @author Paweł Gierlasiński <pawel@mediamonks.com>
+ * @author Paweł Gierlasiński <gierlasinski.pawel@gmail.com>
  */
 class Grid extends GridBase
 {

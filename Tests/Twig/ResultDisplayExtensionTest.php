@@ -10,7 +10,7 @@ use Mockery as m;
 
 /**
  * Class ResultDisplayExtensionTest
- * @author Paweł Gierlasiński <pawel@mediamonks.com>
+ * @author Paweł Gierlasiński <gierlasinski.pawel@gmail.com>
  */
 class ResultDisplayExtensionTest extends TestCase
 {

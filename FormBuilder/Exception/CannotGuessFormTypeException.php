@@ -7,7 +7,7 @@ use Kora\DataProvider\OperatorDefinition\FilterOperatorDefinitionInterface;
 
 /**
  * Class CannotGuessFormType
- * @author Paweł Gierlasiński <pawel@mediamonks.com>
+ * @author Paweł Gierlasiński <gierlasinski.pawel@gmail.com>
  */
 class CannotGuessFormTypeException extends \Exception
 {

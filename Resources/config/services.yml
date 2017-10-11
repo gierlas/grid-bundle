@@ -1,0 +1,10 @@
+services:
+    kora_grid.grid_factory:
+        class: Kora\GridBundle\GridFactory
+        arguments:
+            - '@kora.grid.form_builder'
+
+    kora_grid.form_builder:
+        class: Kora\GridBundle\FormBuilder\FormBuilder
+        arguments:
+            - '@form.factory'
