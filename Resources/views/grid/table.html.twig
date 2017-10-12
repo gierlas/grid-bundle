@@ -1,0 +1,31 @@
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        {% for column in resultDisplay.columns %}
+            <th>
+                {% if resultDisplay.result.isColumnOrderable(column.name) %}
+                    <a href="{{ url(routeFilter, resultDisplay.result.orderParamsForColumn(column.name)) }}">
+                        {{ column.label }}
+                        {% set columnOrder = resultDisplay.result.columnOrder(column.name) %}
+                        <i class="fa fa-{{ columnOrder == 'DESC' ? 'caret-down' : ( columnOrder == 'ASC' ? 'caret-up' : 'sort' )}}"></i>
+
+                    </a>
+                {% else %}
+                    {{ column.label }}
+                {% endif %}
+            </th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in resultDisplay.result.results %}
+        <tr>
+            {% for column in resultDisplay.columns %}
+                <td>
+                    {{ kora_render_column(column, row) }}
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

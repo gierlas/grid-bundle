@@ -1,0 +1,52 @@
+{% set paginator = resultDisplay.result.paginator %}
+{% if paginator.thereMore %}
+    <ul class="pagination">
+        <li {{ paginator.onFirstPage ? 'class="disabled"' : '' }}>
+            <a href="{{ url(routeFilter, paginator.pageParams('first')) }}" aria-label="First">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li {{ paginator.onFirstPage ? 'class="disabled"' : '' }}>
+            <a href="{{ url(routeFilter, paginator.pageParams('previous')) }}" aria-label="Previous">
+                <span aria-hidden="true">&lsaquo;</span>
+            </a>
+        </li>
+        {% set min = paginator.currentPage - 3 < 1 ? 1 : paginator.currentPage - 3 %}
+        {% set max = paginator.currentPage + 3 > paginator.nbPages ? paginator.nbPages : paginator.currentPage + 3 %}
+
+        {% if min != 1 %}
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&hellip;</span>
+                </a>
+            </li>
+        {% endif %}
+
+        {% for i in min..max %}
+            <li {{ paginator.currentPage == i ? 'class="active"' : '' }}>
+                <a href="{{ url(routeFilter, paginator.pageParams(i)) }}" aria-label="Page {{ i }}">
+                    {{ i }}
+                </a>
+            </li>
+        {% endfor %}
+
+        {% if max != paginator.nbPages %}
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&hellip;</span>
+                </a>
+            </li>
+        {% endif %}
+
+        <li {{ paginator.onLastPage ? 'class="disabled"' : '' }}>
+            <a href="{{ url(routeFilter, paginator.pageParams('next')) }}" aria-label="Next">
+                <span aria-hidden="true">&rsaquo;</span>
+            </a>
+        </li>
+        <li {{ paginator.onLastPage ? 'class="disabled"' : '' }}>
+            <a href="{{ url(routeFilter, paginator.pageParams('last')) }}" aria-label="Last">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+{% endif %}

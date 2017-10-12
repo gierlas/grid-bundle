@@ -1,0 +1,20 @@
+<form action="{{ url(routeFilter) }}" method="get">
+    <div class="row">
+        <div class="col-sm-9">
+            {% for formChild in filterForm.children %}
+                {{ form_row(formChild) }}
+            {% endfor %}
+        </div>
+        <div class="col-sm-3 text-center">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-filter" aria-hidden="true"></i> Filter
+                </button>
+
+                <a class="btn btn-default" href="{{ url(routeReset) }}">
+                    Reset
+                </a>
+            </div>
+        </div>
+    </div>
+</form>

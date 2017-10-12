@@ -41,6 +41,6 @@
         "symfony/symfony": "^3.0"
     },
     "suggest": {
-        "twig/twig": "If you'd like to use twig column renderer",
+        "twig/twig": "If you'd like to use twig column renderer"
     }
 }

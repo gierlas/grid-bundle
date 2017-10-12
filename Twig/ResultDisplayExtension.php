@@ -20,7 +20,7 @@ class ResultDisplayExtension extends \Twig_Extension
 	{
 		return [
 			new \Twig_Function(
-				'render_column', [$this, 'renderColumn'], [
+				'kora_render_column', [$this, 'renderColumn'], [
 					'needs_environment' => true
 				]
 			)
