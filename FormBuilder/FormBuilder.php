@@ -72,8 +72,6 @@ class FormBuilder
 		foreach ($dataProviderOperatorsSetup->getFiltersWithExtraConfigIterator() as $name => list($filter, $config))
 		{
 			/** @var FilterOperatorDefinitionInterface $filter */
-
-			$formType = null;
 			$formTypeConfig = [
 				'required' => false
 			];
