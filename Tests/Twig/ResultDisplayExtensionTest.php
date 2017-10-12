@@ -46,7 +46,7 @@ class ResultDisplayExtensionTest extends TestCase
 			->disableOriginalConstructor()
 			->getMock();
 
-		$column = new Column($columnName, [
+		$column = new Column($columnName, '', [
 			ResultDisplayExtension::KEY_TEMPLATE => $template
 		]);
 		$column->setFake(true);
@@ -101,7 +101,7 @@ class ResultDisplayExtensionTest extends TestCase
 			->disableOriginalConstructor()
 			->getMock();
 
-		$column = m::mock(Column::class, [$columnName, [
+		$column = m::mock(Column::class, [$columnName, '', [
 			ResultDisplayExtension::KEY_TEMPLATE => $template
 		]])
 			->shouldDeferMissing();
