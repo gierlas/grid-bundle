@@ -42,6 +42,8 @@ class ResultDisplayExtension extends \Twig_Extension
 			]);
 		}
 
+
+		$template = $template ?? ($column->getType() ? $this->getTemplateForType($column->getType()) : null);
 		$value = $column->getValue($data);
 
 		return $template === null

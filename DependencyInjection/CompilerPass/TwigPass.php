@@ -2,6 +2,7 @@
 
 namespace Kora\GridBundle\DependencyInjection\CompilerPass;
 
+use Kora\GridBundle\DependencyInjection\KoraGridExtension;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -14,8 +15,6 @@ use Kora\GridBundle\Twig\ResultDisplayExtension;
  */
 class TwigPass implements CompilerPassInterface
 {
-	//- [ 'addType', ['date', 'AppAdminBundle:Analytics:date.html.twig'] ]
-
 	const TWIG_EXTENSION_NAME = 'kora_grid.twig_extension';
 
 	public function process(ContainerBuilder $container)
@@ -25,8 +24,14 @@ class TwigPass implements CompilerPassInterface
 			return;
 		}
 
+		$types = $container->getParameterBag()->get(KoraGridExtension::CONFIG_KEY) ?? [];
+
 		$definition = new Definition(ResultDisplayExtension::class);
 		$definition->addTag('twig.extension');
+
+		foreach ($types as $type => $template) {
+			$definition->addMethodCall('addType', [$type, $template]);
+		}
 
 		$container->setDefinition(self::TWIG_EXTENSION_NAME, $definition);
 	}

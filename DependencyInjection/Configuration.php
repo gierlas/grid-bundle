@@ -17,6 +17,16 @@ class Configuration implements ConfigurationInterface
 		$treeBuilder = new TreeBuilder();
 		$rootNode = $treeBuilder->root('kora_grid');
 
+		$rootNode
+			->children()
+				->arrayNode('twig')
+					->addDefaultsIfNotSet()
+					->children()
+						->arrayNode('types')
+							->useAttributeAsKey('id')
+							->prototype('scalar');
+
+
 		return $treeBuilder;
 	}
 }

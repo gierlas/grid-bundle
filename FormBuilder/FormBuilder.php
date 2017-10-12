@@ -51,6 +51,15 @@ class FormBuilder
 	}
 
 	/**
+	 * @param FilterOperatorDefinitionInterface $filter
+	 * @return FilterFormTypeInterface|null
+	 */
+	public function guessFormType(FilterOperatorDefinitionInterface $filter)
+	{
+		return $this->filterForms[get_class($filter)] ?? null;
+	}
+
+	/**
 	 * @param DataProviderOperatorsSetup $dataProviderOperatorsSetup
 	 * @return FormInterface
 	 * @throws CannotGuessFormTypeException
@@ -96,14 +105,5 @@ class FormBuilder
 
 		$formBuilder->setData($data);
 		return $formBuilder->getForm();
-	}
-
-	/**
-	 * @param FilterOperatorDefinitionInterface $filter
-	 * @return FilterFormTypeInterface|null
-	 */
-	public function guessFormType(FilterOperatorDefinitionInterface $filter)
-	{
-		return $this->filterForms[get_class($filter)] ?? null;
 	}
 }
