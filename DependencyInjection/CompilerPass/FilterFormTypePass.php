@@ -19,6 +19,8 @@ class FilterFormTypePass implements CompilerPassInterface
 
 	public function process(ContainerBuilder $container)
 	{
+		if(!$container->hasDefinition(self::FILTER_FORM_BUILDER_NAME)) return;
+
 		$filterFormBuilder = $container->getDefinition(self::FILTER_FORM_BUILDER_NAME);
 
 		$filterFormTypes = $container ->findTaggedServiceIds(self::FILTER_FORM_TAG);

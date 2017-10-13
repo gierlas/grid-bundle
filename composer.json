@@ -38,7 +38,8 @@
         "mockery/mockery": "^1.0",
         "twig/twig": "^2.4",
         "symfony/dependency-injection": "^3.3",
-        "symfony/symfony": "^3.0"
+        "symfony/symfony": "^3.0",
+        "matthiasnoback/symfony-dependency-injection-test": "^2.1"
     },
     "suggest": {
         "twig/twig": "If you'd like to use twig column renderer"
