@@ -13,6 +13,12 @@ before_install:
 install:
   - composer update --prefer-source $COMPOSER_FLAGS
 
+script: phpunit --coverage-clover=coverage.clover
+
+after_script:
+    - wget https://scrutinizer-ci.com/ocular.phar
+    - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+
 env:
   global:
     secure: kKaRbpOi8ysQaswxGu/m1S8GKLWAhRI8e2YyJaeQ22XhB/wRt74WR79Lwk2JJkQDDUmp42p8BdruqTzi72hY4HfawXn1WXSN48Kvoavf7DnmBgcjcFq58g0Ih9l/dCzVE6sTLKajuVoFZZhkNXKcpluQcu24Wzqs53NiGevx7MiYIKrh8kikvQIxI0+gUlIb3hRZ1uH0zXm9fISPjc7NCKLGvbzLCQwxcrwwAtbJhTehiXib0oOLnO8VPu76J5IDSrrcMx8sKaUSiqDQR85OHdXhZO6bkAG54n5/KbhrFgdxyqA0wZprAjPS6Z4SVNRfew+rrXA/KMm9av0G+dk/CnDQkzrTnWPdHI7AS7HUuyrQWZGlgWDkfRCqM9MDYN9500H9xfhzVUdpkvaJLMsomWN+Y9hLbGT1EH0K74F6UOAA07MwM9IVJMGM2TVDBXWcLrJdZKsLeNfMngcw1je+UYfKSYbtlecvPNgNG+27saYnzTbRkiTGA36b/KuaObx+/iSmXqWx6+cGJuRUCdcnL2Q6pCuhd7nwb8nxUiAWkIh2ylTgXWzphR6GyeyvQlcoTG0DD1qEwWj951/TBc71Cgdb0oGNNOGR7ZUaikflbiBR/41IH7OWZWrfVB1yoy7zYVn6MMeFr4fg+k2+UNC7ZuTk4ntJPbFwqsBBHCDixoo=
