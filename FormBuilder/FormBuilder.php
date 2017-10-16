@@ -52,11 +52,17 @@ class FormBuilder
 
 	/**
 	 * @param FilterOperatorDefinitionInterface $filter
-	 * @return FilterFormTypeInterface|null
+	 * @return FilterFormTypeInterface
+	 * @throws \Kora\GridBundle\FormBuilder\Exception\CannotGuessFormTypeException
 	 */
-	public function guessFormType(FilterOperatorDefinitionInterface $filter)
+	public function guessFormType(FilterOperatorDefinitionInterface $filter): FilterFormTypeInterface
 	{
-		return $this->filterForms[get_class($filter)] ?? null;
+		$filterFormType = $this->filterForms[get_class($filter)] ?? null;
+		if($filterFormType === null) {
+			throw new CannotGuessFormTypeException($filter);
+		}
+
+		return $filterFormType;
 	}
 
 	/**
@@ -72,32 +78,18 @@ class FormBuilder
 		foreach ($dataProviderOperatorsSetup->getFiltersWithExtraConfigIterator() as $name => list($filter, $config))
 		{
 			/** @var FilterOperatorDefinitionInterface $filter */
-			$formTypeConfig = [
-				'required' => false
-			];
+			$formConfig = $config[self::FORM_KEY] ?? [];
+			$formType = $formConfig[self::FORM_TYPE_KEY] ?? null;
+			$formTypeConfig = $formConfig[self::FORM_TYPE_CONFIG_KEY] ?? [ 'required' => false ];
 
-			if(isset($config[self::FORM_KEY])) {
-				$formConfig = $config[self::FORM_KEY];
-				$formType = $formConfig[self::FORM_TYPE_KEY] ?? null;
-				$formTypeConfig = $formConfig[self::FORM_TYPE_CONFIG_KEY] ?? $formTypeConfig;
+			$data[$filter->getName()] = $filter->getParamValue();
 
-				if($formType !== null) {
-					$paramVal = $filter->getParamValue();
-					if(is_array($paramVal)) {
-						$data += $paramVal;
-					}
-					$formBuilder->add($filter->getName(), $formType, $formTypeConfig);
-					continue;
-				}
+			if($formType !== null) {
+				$formBuilder->add($filter->getName(), $formType, $formTypeConfig);
+				continue;
 			}
 
 			$filterFormType = $this->guessFormType($filter);
-
-			if($filterFormType === null) {
-				throw new CannotGuessFormTypeException($filter);
-			}
-
-			$data[$filter->getName()] = $filter->getParamValue();
 			$filterFormType->addToBuilder($formBuilder, $formTypeConfig);
 		}
 
