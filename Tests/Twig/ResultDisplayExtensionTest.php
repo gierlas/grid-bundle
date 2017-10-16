@@ -46,6 +46,11 @@ class ResultDisplayExtensionTest extends TestCase
 			->disableOriginalConstructor()
 			->getMock();
 
+		$twigEnvironment
+			->expects($this->once())
+			->method('render')
+			->willReturn('');
+
 		$column = new Column($columnName, '', [
 			ResultDisplayExtension::KEY_TEMPLATE => $template
 		]);
