@@ -7,6 +7,7 @@ use Kora\DataProvider\OperatorDefinition\FilterOperatorDefinitionInterface;
 use Kora\GridBundle\FormBuilder\Exception\CannotGuessFormTypeException;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Class FormBuilder
@@ -67,13 +68,12 @@ class FormBuilder
 
 	/**
 	 * @param DataProviderOperatorsSetup $dataProviderOperatorsSetup
-	 * @return FormInterface
+	 * @return FormBuilderInterface
 	 * @throws CannotGuessFormTypeException
 	 */
-	public function buildForm(DataProviderOperatorsSetup $dataProviderOperatorsSetup): FormInterface
+	public function buildForm(DataProviderOperatorsSetup $dataProviderOperatorsSetup): FormBuilderInterface
 	{
 		$formBuilder = $this->formFactory->createNamedBuilder('');
-		$data = [];
 
 		foreach ($dataProviderOperatorsSetup->getFiltersWithExtraConfigIterator() as $name => list($filter, $config))
 		{
@@ -81,8 +81,6 @@ class FormBuilder
 			$formConfig = $config[self::FORM_KEY] ?? [];
 			$formType = $formConfig[self::FORM_TYPE_KEY] ?? null;
 			$formTypeConfig = $formConfig[self::FORM_TYPE_CONFIG_KEY] ?? [ 'required' => false ];
-
-			$data[$filter->getName()] = $filter->getParamValue();
 
 			if($formType !== null) {
 				$formBuilder->add($filter->getName(), $formType, $formTypeConfig);
@@ -93,7 +91,6 @@ class FormBuilder
 			$filterFormType->addToBuilder($formBuilder, $formTypeConfig);
 		}
 
-		$formBuilder->setData($data);
-		return $formBuilder->getForm();
+		return $formBuilder;
 	}
 }

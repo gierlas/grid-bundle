@@ -4,6 +4,7 @@ namespace Kora\GridBundle;
 
 use Kora\Grid\Grid as GridBase;
 use Kora\GridBundle\FormBuilder\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 
 /**
@@ -28,9 +29,10 @@ class Grid extends GridBase
 	}
 
 	/**
-	 * @return FormInterface
+	 * @return FormBuilderInterface
+	 * @throws \Kora\GridBundle\FormBuilder\Exception\CannotGuessFormTypeException
 	 */
-	public function getFilterForm(): FormInterface
+	public function getFilterForm(): FormBuilderInterface
 	{
 		return $this->formBuilder->buildForm($this);
 	}
