@@ -88,7 +88,7 @@ class FormBuilder
 			}
 
 			$filterFormType = $this->guessFormType($filter);
-			$filterFormType->addToBuilder($formBuilder, $formTypeConfig);
+			$filterFormType->addToBuilder($formBuilder, $filter, $formTypeConfig);
 		}
 
 		return $formBuilder;

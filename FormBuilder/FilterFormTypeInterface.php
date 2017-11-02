@@ -2,6 +2,7 @@
 
 namespace Kora\GridBundle\FormBuilder;
 
+use Kora\DataProvider\OperatorDefinition\FilterOperatorDefinitionInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
 
@@ -11,5 +12,7 @@ use Symfony\Component\Form\FormBuilderInterface;
  */
 interface FilterFormTypeInterface
 {
-	public function addToBuilder(FormBuilderInterface $formBuilder, array $config = []);
+	public function addToBuilder(
+		FormBuilderInterface $formBuilder, FilterOperatorDefinitionInterface $filterDefinition, array $config = []
+	);
 }

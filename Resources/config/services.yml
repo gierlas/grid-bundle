@@ -8,3 +8,17 @@ services:
         class: Kora\GridBundle\FormBuilder\FormBuilder
         arguments:
             - '@form.factory'
+
+    kora_grid.form.choice_filter:
+        class: Kora\GridBundle\FormBuilder\FilterFormTypes\ChoiceFilterFormType
+        tags:
+            -
+                name: kora_grid.filter_form
+                filter: "Kora\\DataProvider\\OperatorDefinition\\Filter\\ChoiceFilterDefinition"
+
+    kora_grid.form.date_range:
+        class: Kora\GridBundle\FormBuilder\FilterFormTypes\DateRangeFilterFormType
+        tags:
+            -
+                name: kora_grid.filter_form
+                filter: "Kora\\DataProvider\\OperatorDefinition\\Filter\\DateRangeFilterDefinition"
